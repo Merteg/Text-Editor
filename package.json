@@ -1,0 +1,14 @@
+{
+  "name": "textedditor",
+  "version": "1.0.0",
+  "description": "New Electron Text Edditor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Andrew Black",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.8.6"
+  }
+}
