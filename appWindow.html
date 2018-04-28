@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Text Editor</title>
 </head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    #content {
+        width: 100%;
+        height: 50vh;
+    }
+</style>
 <body>
-    
+    <textarea id="content"></textarea>
+    <script>
+        const electron = require('electron');
+        const {ipcRenderer} = electron;
+        const txt = document.getElementById("content");
+        ipcRenderer.on('file:load', (e, data) => {
+            txt.innerHTML = data;
+        });
+        ipcRenderer.on('file:save', () => {
+            ipcRenderer.send('save', txt.value);
+        })
+    </script>
 </body>
+
 </html>
